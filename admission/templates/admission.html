@@ -1,0 +1,368 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<center>
+    <h1>ONLINE PRE-REGISTRATION FORM</h1>
+</center>
+<br>
+
+<!--<div id="myModal" class="modal fade ">-->
+<!--    <div class="modal-dialog">-->
+<!--        <div class="modal-content">-->
+<!--            <div class="modal-header">-->
+<!--                <h4 class="modal-title">ACI Privacy Notice</h4>-->
+<!--                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>-->
+<!--            </div>-->
+<!--            <div class="modal-body">-->
+<!--				<p>-->
+<!--                    Agusan Colleges, Incorporated is duly obligated to protect all personal data the-->
+<!--                    institution collects and processes from the students, faculty, administrative personnel,-->
+<!--                    and alumni. This information is provided under the Philippine Republic Act No. 10173 or-->
+<!--                    commonly known as "Data Privacy Act 2012."-->
+<!--                </p>-->
+<!--                <p>-->
+<!--                    Data Collection:<br>-->
+<!--                    Agusan Colleges Incorporated (ACI) collects, processes, and stores personal data.<bt>-->
+<!--                    These includes:<br>-->
+<!--                    A. General personal information such as name, contact number, gender, address, place of birth, nationality, civil status, and email address, etc.<br>-->
+<!--                    B. Family background including parents name, address, siblings, guardians and contact numbers.<br>-->
+<!--                    C. Health records, physical examination results.<br>-->
+<!--                    D. Disciplinary records.<br>-->
+<!--                    E. Financial and billing information.<br>-->
+<!--                    F. Photographic data such as photos, videos, signatures both handwritten and digital.<br>-->
+<!--                    G. Student research work such as thesis and projects and<br>-->
+<!--                    H. Students extra-curricular activities.<br>-->
+
+<!--                </p>-->
+
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle"
+     aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-dialog-scrollable" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalScrollableTitle">ACI PRIVACY NOTICE</h5>
+<!--                <button type="button" class="close" data-dismiss="modal" aria-label="Close">-->
+<!--                    <span aria-hidden="true">&times;</span>-->
+                </button>
+            </div>
+            <div class="modal-body">
+                <p><b>
+                    Agusan Colleges, Incorporated is duly obligated to protect all personal data the
+                    institution collects and processes from the students, faculty, administrative personnel,
+                    and alumni. This information is provided under the Philippine Republic Act No. 10173 or
+                    commonly known as "Data Privacy Act 2012."</b>
+                </p>
+                <hr>
+                <br>
+
+                <p>
+                    <b>Data Collection:<br><br>
+                    Agusan Colleges Incorporated (ACI) collects, processes, and stores personal data.
+                        These includes:<br></b>
+                    <hr>
+                        A. General personal information such as name, contact number, gender, address, place of birth,
+                        nationality, civil status, and email address, etc.<br>
+                        B. Family background including parents name, address, siblings, guardians and contact
+                        numbers.<br>
+                        C. Health records, physical examination results.<br>
+                        D. Disciplinary records.<br>
+                        E. Financial and billing information.<br>
+                        F. Photographic data such as photos, videos, signatures both handwritten and digital.<br>
+                        G. Student research work such as thesis and projects and<br>
+                        H. Students extra-curricular activities.<br>
+                </p>
+                <p>
+                    <hr>
+                    <b>Use of Information:<br><br>
+                        Collection of personal data is used solely for the following purposes:</b><br>
+                    <hr>
+                    A. Processing of enrollment and registration.<br>
+                    B. Marketing and Promotion of Agusan Colleges Inc.<br>
+                    C. Processing of statement of accounts.<br>
+                    D. Reference for school events and activities.<br>
+                    E. Evaluation of board examinations.<br>
+                    F. Processing of Tertiary Education Subsidy required by CHED.<br>
+                    G. Processing of scholarship programs offered by the institution.<br>
+                    H. Processing of graduation requirements by the institution.<br>
+                    I. Processing of request for Special Order to CHED.<br>
+                    J. Documentation of students’ data.<br>
+                    K. Posting of schools records in bulletin board.<br>
+                    L .Posting of photos in official school activities to social media platforms such as Facebook and Instagram.<br>
+                </p>
+                <p>
+                    <hr>
+                    <b>Limitation:</b><br>
+                    <hr>
+                    A. ACI is duly obligated to protect personal data and shall be disclosed only to authorized regulatory authorities such as government agencies, Department of Education, and COmmission on Higher Education.<br>
+                    B. Private Education Assistance Committee (PEAC).<br>
+                    C. Academic Linkages such as review centers and business partners who help students provide job opportunities after graduation.<br>
+                </p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<p>
+    <b>Instruction</b><br>
+    (1) Please Supply all information required.<br>
+    (2) Leave it BLANK if the information asked is not applicable to you.<br>
+    <b>Note</b>: Fields marked with (*) are required.
+</p>
+
+{% if messages %}
+    {% for message in messages %}
+        {{ message }}
+    {% endfor %}
+{% endif %}
+
+<form method="POST" action="{% url 'admission' %}"> {% csrf_token%}
+
+    <br>
+    <hr>
+    <b>
+        <lable>Student Classification and Preference</lable>
+    </b>
+    <hr>
+
+    <div class="radio">
+        {% for class in classification %}
+        <label><input type="radio" name="stud_classification" value="{{ class.pk }}"> {{ class.classification }}</label> &nbsp&nbsp&nbsp
+        {% endfor %}
+    </div>
+
+    <br>
+
+    <div class="row">
+        <div class="col-4">
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <label class="input-group-text">Program</label>
+                </div>
+                <select class="custom-select"  name="stud_program">
+                    <option selected>Choose...</option>
+                    {% for prog in programs %}
+                    <option value="{{ prog.pk }}">{{ prog.program_title }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+        </div>
+
+        <div class="col-4">
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <label class="input-group-text">Year Level</label>
+                </div>
+                <select class="custom-select"  name="stud_year_level">
+                    <option selected>Choose...</option>
+                    {% for yearlevel in year_level %}
+                    <option value="{{ yearlevel.pk}}">{{ yearlevel.year_level}}</option>
+                    {% endfor %}
+                </select>
+            </div>
+        </div>
+
+        <div class="col-4">
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <label class="input-group-text">Preferred Shift</label>
+                </div>
+                <select class="custom-select" name="stud_shift">
+                    <option selected>Choose...</option>
+                    {% for shift in shifts %}
+                    <option name="stud_shift"  value="{{ shift.pk}}">{{ shift.shift_title}} : {{ shift.shift_time}}</option>
+                    {% endfor %}
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <br>
+    <hr>
+    <b><label>Student Personal Information</label></b>
+    <hr>
+
+<!--    <div class="row">-->
+<!--&lt;!&ndash;        <div class="col-4">&ndash;&gt;-->
+<!--&lt;!&ndash;            <div class="form-group">&ndash;&gt;-->
+<!--&lt;!&ndash;                <label>Classification</label>&ndash;&gt;-->
+<!--&lt;!&ndash;                <input type="text" class="form-control" name="stud_classification">&ndash;&gt;-->
+<!--&lt;!&ndash;            </div>&ndash;&gt;-->
+<!--&lt;!&ndash;        </div>&ndash;&gt;-->
+<!--        <div class="col-4">-->
+<!--            <div class="form-group">-->
+<!--                <label>Program</label>-->
+<!--                <input type="text" class="form-control" name="stud_program">-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        <div class="col-4">-->
+<!--            <div class="form-group">-->
+<!--                <label>Year level</label>-->
+<!--                <input type="text" class="form-control" name="stud_year_level">-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        <div class="col-4">-->
+<!--            <div class="form-group">-->
+<!--                <label>Shift</label>-->
+<!--                <input type="text" class="form-control" name="stud_shift">-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+
+    <div class="row">
+        <div class="col-4">
+            <div class="form-group">
+                <label>Last Name</label>
+                <input type="text" class="form-control" name="last_name">
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="form-group">
+                <label>First Name</label>
+                <input type="text" class="form-control" name="first_name">
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="form-group">
+                <label>Middle Name</label>
+                <input type="text" class="form-control" name="middle_name">
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-4">
+            <div class="form-group">
+                <label>Birthdate</label>
+                <input type="text" class="form-control" name="birthdate">
+            </div>
+        </div>
+        <div class="col-8">
+            <div class="form-group">
+                <label>Birth Place</label>
+                <input type="text" class="form-control" name="birth_place">
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-6">
+            <div class="form-group">
+                <label>Religion</label>
+                <input type="text" class="form-control" name="religion">
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="form-group">
+                <label>Nationality</label>
+                <input type="text" class="form-control" name="nationality">
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-6">
+            <div class="form-group">
+                <label>Gender</label>
+                <input type="text" class="form-control" name="gender">
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="form-group">
+                <label>Civil Status</label>
+                <input type="text" class="form-control" name="civil_status">
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-6">
+            <div class="form-group">
+                <label>Email Address</label>
+                <input type="text" class="form-control" name="email_address">
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="form-group">
+                <label>Social Media Accounts</label>
+                <input type="text" class="form-control" name="social_media_accounts">
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-6">
+            <div class="form-group">
+                <label>Mobile Number</label>
+                <input type="text" class="form-control" name="mobile_number">
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="form-group">
+                <label>Residence Landline Number</label>
+                <input type="text" class="form-control" name="landline_number">
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12">
+            <div class="form-group">
+                <label>Home Address</label>
+                <input type="text" class="form-control" name="home_address">
+            </div>
+        </div>
+    </div>
+
+    <hr>
+    <b>
+        <center><lable>Survey</lable></center>
+    </b>
+    <hr>
+
+    <div class="row">
+        <div class="col-6">
+            <div class="card" style="width: auto;">
+                <div class="card-body">
+                    <h5 class="card-title">Where did you hear about ACI?</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">(Choose One)</h6>
+                    <div class="form-check">
+                        {% for wer in where %}
+                        <input class="form-check-input" type="radio" name="where_hear_us" value="{{ wer.pk}}">
+                        <label class="form-check-label">
+                            {{ wer.where}}
+                        </label><br>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="card" style="width: auto;">
+                <div class="card-body">
+                    <h5 class="card-title">Why did you prefer to choose ACI?</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">(Choose One)</h6>
+                    <div class="form-check">
+                        {% for wy in why %}
+                        <input class="form-check-input" type="radio" name="why_choose_us" value="{{ wy.pk}}">
+                        <label class="form-check-label">
+                            {{ wy.why}}
+                        </label><br>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+    <button type="submit" class="btn btn-primary" value="select">Submit</button>
+</form>
+
+{% endblock %}
