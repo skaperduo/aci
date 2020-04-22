@@ -1,7 +1,10 @@
+from django.conf import settings
 from django.shortcuts import render, redirect
+from django.contrib import messages
+from django.core.mail import send_mail
 from .models import Programs, PreferredShift, YearLevel, StudentClassification, StudentPersonalInformation, WhereDidYouHearUs, WhyDidYouChooseUs
 from .forms import StudentPersonalInformationForm
-from django.contrib import messages
+
 
 # Create your views here.
 
@@ -34,6 +37,12 @@ def admission(request):
 
         if form.is_valid():
             form.save()
+            subject = "ACI Online Pre-registration Confirmation"
+            message = "Thank you for Pre-registering to ACI \n Looking forward seeing you in ACI Campus! \n God bless.."
+            from_email = 'aciunofficial@gmail.com'
+            email = form['email_address'].value()
+            to_list = [email, settings.EMAIL_HOST_USER]
+            send_mail(subject, message, from_email, to_list, fail_silently=True)
         else:
             messages.success(request, 'There was an error!')
             print(form['stud_classification'].value())
@@ -41,6 +50,7 @@ def admission(request):
             print(form['stud_year_level'].value())
             print(form['stud_shift'].value())
             print(form['first_name'].value())
+            print(form['email_address'].value())
 
         return render(request, 'admission.html', {
             'programs': all_programs,
