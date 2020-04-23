@@ -38,28 +38,22 @@ def admission(request):
         if form.is_valid():
             form.save()
             subject = "ACI Online Pre-registration Confirmation"
-            message = "Thank you for Pre-registering to ACI \n Looking forward seeing you in ACI Campus! \n God bless.."
+            message = "Thank you for Pre-registering to ACI \n " \
+                      "Looking forward to seeing you in ACI Campus! \n God bless.."
             from_email = 'aciunofficial@gmail.com'
             email = form['email_address'].value()
             to_list = [email, settings.EMAIL_HOST_USER]
             send_mail(subject, message, from_email, to_list, fail_silently=True)
-        else:
-            messages.success(request, 'There was an error!')
-            print(form['stud_classification'].value())
-            print(form['stud_program'].value())
-            print(form['stud_year_level'].value())
-            print(form['stud_shift'].value())
-            print(form['first_name'].value())
-            print(form['email_address'].value())
 
-        return render(request, 'admission.html', {
-            'programs': all_programs,
-            'shifts': all_shifts,
-            'year_level': all_year_level,
-            'classification': all_classification,
-            'where': all_where,
-            'why': all_why
-        })
+        return redirect('confirm')
+        # return render(request, 'admission.html', {
+        #     'programs': all_programs,
+        #     'shifts': all_shifts,
+        #     'year_level': all_year_level,
+        #     'classification': all_classification,
+        #     'where': all_where,
+        #     'why': all_why
+        # })
 
     else:
         return render(request, 'admission.html', {
@@ -72,3 +66,5 @@ def admission(request):
         })
 
 
+def confirmation(request):
+    return render(request, 'confirmation.html', {})
