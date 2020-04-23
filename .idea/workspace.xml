@@ -3,11 +3,12 @@
   <component name="ChangeListManager">
     <list default="true" id="0dd27d71-a84b-4bb5-b31d-071b74bc29d1" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/aciWebsite/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/aciWebsite/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/aciWebsite/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/aciWebsite/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/about_us/templates/aci_history.html" beforeDir="false" afterPath="$PROJECT_DIR$/about_us/templates/aci_history.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/about_us/templates/aci_vmgo.html" beforeDir="false" afterPath="$PROJECT_DIR$/about_us/templates/aci_vmgo.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/admission/templates/confirmation.html" beforeDir="false" afterPath="$PROJECT_DIR$/admission/templates/confirmation.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/homepage/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/homepage/templates/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/main.css" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,23 +57,28 @@
     <servers />
   </component>
   <component name="WindowStateProjectService">
-    <state x="414" y="174" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1587600403442">
+    <state x="414" y="174" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1587677782273">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="414" y="174" key="#com.intellij.execution.impl.EditConfigurationsDialog/1920.0.1366.728/0.0.1920.1040@0.0.1920.1040" timestamp="1587600403442" />
+    <state x="414" y="174" key="#com.intellij.execution.impl.EditConfigurationsDialog/1920.0.1366.728/0.0.1920.1040@0.0.1920.1040" timestamp="1587677782273" />
     <state x="735" y="322" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1587420065132">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="735" y="322" key="#com.intellij.fileTypes.FileTypeChooser/1920.316.1366.728/0.0.1920.1040@0.0.1920.1040" timestamp="1587420065132" />
-    <state x="656" y="343" key="com.intellij.ide.util.TipDialog" timestamp="1587600336729">
+    <state x="614" y="106" key="CommitChangelistDialog2" timestamp="1587677629473">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
+    <state x="614" y="106" key="CommitChangelistDialog2/1920.0.1366.728/0.0.1920.1040@0.0.1920.1040" timestamp="1587677629473" />
+    <state x="656" y="343" key="com.intellij.ide.util.TipDialog" timestamp="1587662307396">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="656" y="343" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1587662307396" />
     <state x="656" y="343" key="com.intellij.ide.util.TipDialog/1920.0.1366.728/0.0.1920.1040@0.0.1920.1040" timestamp="1587600336729" />
     <state x="656" y="343" key="com.intellij.ide.util.TipDialog/1920.316.1366.728/0.0.1920.1040@0.0.1920.1040" timestamp="1587499369140" />
-    <state x="769" y="436" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1587600397453">
+    <state x="769" y="436" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1587677612264">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="769" y="436" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/1920.0.1366.728/0.0.1920.1040@0.0.1920.1040" timestamp="1587600397453" />
+    <state x="769" y="436" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/1920.0.1366.728/0.0.1920.1040@0.0.1920.1040" timestamp="1587677612264" />
     <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1587428648163">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
